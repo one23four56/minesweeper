@@ -1,0 +1,13 @@
+grid-main {
+    display: grid;
+    grid-gap: 0.5rem;
+    width: min-content;
+}
+
+div.cell {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 1em;
+    width: 10px;
+    height: 10px;
+}
