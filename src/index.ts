@@ -6,4 +6,7 @@ import Grid from './grid';
 //      also names have to have a '-' in them for some reason
 window.customElements.define('grid-main', Grid);
 
-document.body.appendChild(new Grid(20, 10));
+const grid = new Grid(30, 10);
+document.body.appendChild(grid);
+grid.getCell(10, 9).style.backgroundColor = 'red';
+grid.getCell(50).style.backgroundColor = 'white';
