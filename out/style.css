@@ -1,7 +1,19 @@
+body {
+    position: fixed;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 grid-main {
     display: grid;
     grid-gap: 0.5rem;
     width: min-content;
+    overflow: scroll;
 }
 
 div.cell {
@@ -10,4 +22,5 @@ div.cell {
     padding: 1em;
     width: 10px;
     height: 10px;
+    cursor: pointer;
 }
