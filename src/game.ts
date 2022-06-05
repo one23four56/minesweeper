@@ -24,36 +24,36 @@ export default class Game {
 
             cell.addEventListener('mouseenter', () => {
                 if (cell.type === "unknown")
-                    cell.style.backgroundColor = "gray";
+                    cell.className = "hover"
                 else if (cell.type === "safe")
                     cell.getNeighbors().forEach(neighbor => {
                         if (neighbor.type === "unknown")
-                            neighbor.style.backgroundColor = "gray";
+                            neighbor.className = "hover"
                     });
             })
 
             cell.addEventListener('mouseleave', () => {
                 if (cell.type === "unknown")
-                    cell.style.backgroundColor = "#f0f0f0";
+                    cell.className = "unknown"
                 else if (cell.type === "safe")
                     cell.getNeighbors().forEach(neighbor => {
                         if (neighbor.type === "unknown")
-                            neighbor.style.backgroundColor = "#f0f0f0";
+                            neighbor.className = "unknown"
                     })
             })
 
             cell.addEventListener('click', () => {
                 if (cell.dataset.bomb === "yes" && cell.type !== "flag") {
-                    cell.style.backgroundColor = "red";
+                    cell.className = "mine"
                     grid.cells.forEach(cell => {
                         if (cell.dataset.bomb === "yes") {
-                            cell.style.backgroundColor = "red";
+                            cell.className = "mine"
                             cell.type = "bomb"
                         } 
                     })
                     this.doLoseAction();
                 } else if (cell.type === "unknown") {
-                    cell.style.backgroundColor = "green";
+                    cell.className = "safe"
                     cell.type = "safe"
 
                     const nearby = GameUtilities.getNearbyBombs(cell)
@@ -78,7 +78,7 @@ export default class Game {
                     if (this.totalFlags === bombs)
                         return;
                     
-                    cell.style.backgroundColor = "blue";
+                    cell.className = "flag"
                     cell.type = "flag";
 
                     if (cell.dataset.bomb === "yes")
@@ -96,7 +96,7 @@ export default class Game {
                         this.doWinAction();
 
                 } else if (cell.type === "flag") {
-                    cell.style.backgroundColor = "#f0f0f0";
+                    cell.className = "unknown"
                     cell.type = "unknown";
 
                     if (cell.dataset.bomb === "yes")
@@ -170,7 +170,7 @@ class GameUtilities {
         cell.getNeighbors().forEach(neighbor => {
             if (neighbor.type === "unknown") {
                 neighbor.type = "safe";
-                neighbor.style.backgroundColor = "green";
+                neighbor.className = "safe"
 
                 const nearby = GameUtilities.getNearbyBombs(neighbor);
                 if (nearby === 0)

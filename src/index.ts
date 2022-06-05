@@ -12,6 +12,19 @@ window.customElements.define('grid-item', Cell);
 document.querySelector<HTMLFormElement>("form")?.addEventListener("submit", event => {
     event.preventDefault();
 
+    if (
+        (document.querySelector<HTMLInputElement>("#mines")?.valueAsNumber ?? 10)
+        > 
+        (
+            (document.querySelector<HTMLInputElement>("#cols")?.valueAsNumber ?? 10)
+            * 
+            (document.querySelector<HTMLInputElement>("#rows")?.valueAsNumber ?? 10)
+        ) - 1
+    ) {
+        document.querySelector<HTMLInputElement>("#mines")?.setCustomValidity("Too many mines!");
+        return;
+    }
+
     const grid = new Grid(
         document.querySelector<HTMLInputElement>("#cols")?.valueAsNumber ?? 10,
         document.querySelector<HTMLInputElement>("#rows")?.valueAsNumber ?? 10
