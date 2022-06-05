@@ -10,4 +10,4 @@ window.customElements.define('grid-item', Cell);
 
 const grid = new Grid(40, 20);
 document.body.appendChild(grid);
-new Game(grid, 60)
+new Game(grid, 1)

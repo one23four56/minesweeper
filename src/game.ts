@@ -123,11 +123,35 @@ export default class Game {
     }
 
     doWinAction() {
+        const holder = document.createElement("div");
+        holder.className = "holder"
 
+        const text = document.createElement("h1");
+        text.innerText = "You Win!";
+
+        const button = document.createElement("button");
+        button.innerText = "Play Again";
+        button.onclick = () => location.reload();
+
+        holder.appendChild(text);
+        holder.appendChild(button);
+        document.body.appendChild(holder);
     }
 
     doLoseAction() {
+        const holder = document.createElement("div");
+        holder.className = "holder"
 
+        const text = document.createElement("h1");
+        text.innerText = "You Lose!";
+
+        const button = document.createElement("button");
+        button.innerText = "Play Again";
+        button.onclick = () => location.reload();
+
+        holder.appendChild(text);
+        holder.appendChild(button);
+        document.body.appendChild(holder);
     }
 }
 
