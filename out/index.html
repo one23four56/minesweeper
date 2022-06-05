@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,27 @@
     <link rel="stylesheet" href="style.css">
     <title>Minesweeper</title>
 </head>
+
 <body>
-    
+
+    <form>
+        <h1>Minesweeper</h1>
+        <p>
+            <label for="cols">
+                Grid with <input type="number" id="cols" name="cols" value="10" min="10" max="50"> columns
+            </label>
+            <label for="rows">
+                and <input type="number" id="rows" name="rows" value="10" min="10" max="50"> rows,
+            </label>
+            <label for="mines">
+                containing <input type="number" id="mines" name="mines" value="10" min="1"> mines.
+            </label>
+        </p>
+        <br>
+        <input type="submit" value="Play">
+    </form>
+
     <script src="script.js"></script>
 </body>
+
 </html>

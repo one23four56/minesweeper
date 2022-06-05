@@ -8,6 +8,18 @@ import Game from './game';
 window.customElements.define('grid-main', Grid);
 window.customElements.define('grid-item', Cell);
 
-const grid = new Grid(40, 20);
-document.body.appendChild(grid);
-new Game(grid, 1)
+
+document.querySelector<HTMLFormElement>("form")?.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const grid = new Grid(
+        document.querySelector<HTMLInputElement>("#cols")?.valueAsNumber ?? 10,
+        document.querySelector<HTMLInputElement>("#rows")?.valueAsNumber ?? 10
+    )
+
+    document.body.appendChild(grid);
+
+    new Game(grid, document.querySelector<HTMLInputElement>("#mines")?.valueAsNumber ?? 10);
+
+    document.querySelector<HTMLFormElement>("form")?.remove();
+})

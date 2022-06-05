@@ -1,9 +1,15 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    color: hsl(120, 100%, 50%);
+    background-color: black;
+    border-color: hsl(120, 100%, 50%);
+}
+
 body {
     position: fixed;
     margin: 0;
     height: 100%;
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,10 +49,15 @@ div.holder {
 
 div.holder h1 {
     font-size: 5em;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 div.holder button {
     font-size: 2em;
-    font-family: 'Courier New', Courier, monospace;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap:wrap;
 }
