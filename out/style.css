@@ -11,16 +11,17 @@ body {
 
 grid-main {
     display: grid;
-    grid-gap: 0.5rem;
+    grid-gap: 0;
     width: min-content;
     overflow: scroll;
 }
 
-div.cell {
+grid-item {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 1em;
     width: 10px;
     height: 10px;
     cursor: pointer;
+    user-select: none;
 }

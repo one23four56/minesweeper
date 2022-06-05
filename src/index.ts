@@ -1,12 +1,13 @@
 // imports 
-import Grid from './grid';
+import Grid, { Cell } from './grid';
+import Game from './game';
 
 // register imports 
 //      note: it will throw an 'illegal constructor' error if you do not do this
 //      also names have to have a '-' in them for some reason
 window.customElements.define('grid-main', Grid);
+window.customElements.define('grid-item', Cell);
 
-const grid = new Grid(30, 10);
+const grid = new Grid(40, 20);
 document.body.appendChild(grid);
-grid.getCell(10, 9).style.backgroundColor = 'red';
-grid.getCell(50).style.backgroundColor = 'white';
+new Game(grid, 60)
